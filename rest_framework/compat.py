@@ -133,31 +133,31 @@ if 'patch' not in View.http_method_names:
 
 
 # Markdown is optional (version 3.0+ required)
-try:
-    import markdown
+# try:
+#     import markdown
 
-    HEADERID_EXT_PATH = 'markdown.extensions.toc'
-    LEVEL_PARAM = 'baselevel'
+#     HEADERID_EXT_PATH = 'markdown.extensions.toc'
+#     LEVEL_PARAM = 'baselevel'
 
-    def apply_markdown(text):
-        """
-        Simple wrapper around :func:`markdown.markdown` to set the base level
-        of '#' style headers to <h2>.
-        """
-        extensions = [HEADERID_EXT_PATH]
-        extension_configs = {
-            HEADERID_EXT_PATH: {
-                LEVEL_PARAM: '2'
-            }
-        }
-        md = markdown.Markdown(
-            extensions=extensions, extension_configs=extension_configs
-        )
-        md_filter_add_syntax_highlight(md)
-        return md.convert(text)
-except ImportError:
-    apply_markdown = None
-    markdown = None
+#     def apply_markdown(text):
+#         """
+#         Simple wrapper around :func:`markdown.markdown` to set the base level
+#         of '#' style headers to <h2>.
+#         """
+#         extensions = [HEADERID_EXT_PATH]
+#         extension_configs = {
+#             HEADERID_EXT_PATH: {
+#                 LEVEL_PARAM: '2'
+#             }
+#         }
+#         md = markdown.Markdown(
+#             extensions=extensions, extension_configs=extension_configs
+#         )
+#         md_filter_add_syntax_highlight(md)
+#         return md.convert(text)
+# except ImportError:
+apply_markdown = None
+markdown = None
 
 
 try:
